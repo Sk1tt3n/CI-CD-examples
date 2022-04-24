@@ -1,0 +1,18 @@
+version: 2.1
+
+# Define the jobs we want to run for this project
+jobs:
+  build:
+    docker:
+      - image: rockylinux:latest
+    steps:
+      - checkout
+      - run: echo "hello world"
+
+# Orchestrate our job run sequence
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - build
+
